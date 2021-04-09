@@ -10,6 +10,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-contentful`,
