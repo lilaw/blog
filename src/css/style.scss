@@ -95,14 +95,19 @@ html {
 }
 
 body {
+  --scale: 1;
   color: var(--color-grep-b);
   font-family: 'Output Sans V', sans-serif;
   font-weight: 400;
   line-height: 1.6;
   background-color: var(--color-grep-z);
   font-size: calc( var(--p-font-size-min) * 1.6rem);
-  font-variation-settings: "wght" var(--p-vf-wght), "wdth" 285, "opsz" calc( var(--p-font-size-min) * 16), "GRAD" 88;
   line-height: var(--p-line-height-min);
+  
+  @media screen and (min-width: 24.15em) {
+    // from 0 to 1
+    --scale: ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )) /1.6;
+  }
 }
 
 
@@ -129,16 +134,6 @@ button {
     'wght' var(--text-wght), 
     'ital' var(--text-ital);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
