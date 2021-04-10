@@ -18,10 +18,12 @@
 /* HTML elements */
 :root {
   /* color palette */
-  --color-lilac-a: #bf209f;
-  --color-lilac-b: #d62a9d;
-  --color-lilac-c: #ed317f;
+  --color-lilac-a: #ff237f;
   --color-lilac-d: #d64072;
+  --color-lilac-c: #ed317f;
+  --color-lilac-b: #d62a9d;
+  --color-lilac-e: #bf209f;
+  --color-lilac-f: #210658;
   --color-grep-a: #ffffff;
   --color-grep-b: #f3f3f3;
   --color-grep-c: #5e5e5f;
@@ -152,10 +154,10 @@ p {
   font-size: calc( var(--p-font-size-min) * 1rem );
   line-height: var(--p-line-height-min);
   @media screen and (min-width: 24.15em) {
-    line-height: calc(( var(--p-line-height-min) * 1em ) + ( var(--p-line-height-max) - var(--p-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-large) - var(--bp-small) )));
+    line-height: calc(( var(--p-line-height-min) * 1em ) + ( var(--p-line-height-max) - var(--p-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-large) - var(--bp-small) )) /1.6);
   }
   @media (min-width: 60.25em) {
-    font-size: calc(( var(--p-font-size-min) * 1em ) + ( var(--p-font-size-max) - var(--p-font-size-min) ) * ((100vw - ( var(--bp-large) * 1em )) / ( var(--bp-xlarge) - var(--bp-large) )));
+    font-size: calc(( var(--p-font-size-min) * 1em ) + ( var(--p-font-size-max) - var(--p-font-size-min) ) * ((100vw - ( var(--bp-large) * 1em )) / ( var(--bp-xlarge) - var(--bp-large) )) /1.6);
     line-height: var(--p-line-height-max);
   }
   @media (min-width: 75em) {
@@ -183,8 +185,8 @@ h1 {
   margin: 1rem auto;
   max-width: 50rem;
   @media screen and (min-width: 24.15em) {
-    line-height: calc(( var(--h1-line-height-min) * 1rem ) + ( var(--h1-line-height-max) - var(--h1-line-height-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
-    font-size: calc(( var(--h1-font-size-min) * 1rem ) + ( var(--h1-font-size-max) - var(--h1-font-size-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    line-height: calc(( var(--h1-line-height-min) * 1rem ) + ( var(--h1-line-height-max) - var(--h1-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )) /1.6);
+    font-size: calc(( var(--h1-font-size-min) * 1rem ) + ( var(--h1-font-size-max) - var(--h1-font-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )) /1.6);
   }
   @media screen and (min-width: 43.75em) {
 	  --text-wght: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-m) );	
@@ -215,8 +217,8 @@ h2 {
   line-height: var(--h2-line-height-min);
   margin: 1rem auto .5rem auto;
   @media screen and (min-width: 24.15em) {
-    line-height: calc(( var(--h2-line-height-min) * 1rem ) + ( var(--h2-line-height-max) - var(--h2-line-height-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
-    font-size: calc(( var(--h2-font-size-min) * 1rem ) + ( var(--h2-font-size-max) - var(--h2-font-size-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    line-height: calc(( var(--h2-line-height-min) * 1rem ) + ( var(--h2-line-height-max) - var(--h2-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    font-size: calc(( var(--h2-font-size-min) * 1rem ) + ( var(--h2-font-size-max) - var(--h2-font-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )) /1.6);
   }
   @media screen and (min-width: 43.75em) {
   	--text-wght: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-m) );	
@@ -242,8 +244,8 @@ h3 {
   line-height: var(--h2-line-height-min);
   margin: 1rem auto .5rem auto;
   @media screen and (min-width: 24.15em) {
-    line-height: calc(( var(--h3-line-height-min) * 1rem ) + ( var(--h3-line-height-max) - var(--h3-line-height-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
-    font-size: calc(( var(--h3-font-size-min) * 1rem ) + ( var(--h3-font-size-max) - var(--h3-font-size-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    line-height: calc(( var(--h3-line-height-min) * 1rem ) + ( var(--h3-line-height-max) - var(--h3-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    font-size: calc(( var(--h3-font-size-min) * 1rem ) + ( var(--h3-font-size-max) - var(--h3-font-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )) /1.6);
   }
   @media screen and (min-width: 43.75em) {
   	--text-wght: calc( var(--p-vf-wght) * var(--h3-vf-wght-multiplier-m) );	
