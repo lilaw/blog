@@ -1,0 +1,282 @@
+/* CSS Custom Properties Definitions */
+
+/* Amstelvar Variable Font */
+@font-face {
+  font-family: "Amstelvar VF";
+  src: url('./fonts/Amstelvar-Roman[wdth,wght,opsz].ttf') format('truetype');
+  font-display: swap;
+} 
+/* Output Variable Font */
+@font-face {
+  font-family: 'Output Sans VF'; 
+  src: url('./fonts/Output_Sans-VF.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+/* HTML elements */
+:root {
+  /* color palette */
+  --color-lilac-a: #bf209f;
+  --color-lilac-b: #d62a9d;
+  --color-lilac-c: #ed317f;
+  --color-lilac-d: #d64072;
+  --color-grep-a: #ffffff;
+  --color-grep-b: #f3f3f3;
+  --color-grep-c: #5e5e5f;
+  --color-grep-d: #3f4040;
+  --color-grep-e: #272625;
+  --color-grep-z: #000000;
+  /* initial values ital */
+  --text-wght: 350;
+  --text-ital: 0;
+  /* Breakpoint variables 286.4px 700 964px */
+  --bp-small: 24.15;
+  --bp-medium: 43.75;
+  --bp-large: 60.25;
+  --bp-xlarge: 75;      /*75 * 16 = 1200px */
+  /* Paragraph variables */
+  --p-line-height-min: 1.15;
+  --p-line-height-max: 1.33;
+  --p-font-size-min: 1.0;
+  --p-font-size-max: 1.8;
+  --p-vf-wght: 88;
+  /* H1 variables */
+  --h1-line-height-min: 1;
+  --h1-line-height-max: 1.25;
+  --h1-font-size-min: 2.0;
+  --h1-font-size-max: 5;
+  --h1-vf-wght-multiplier-s: 2.5;
+  --h1-vf-wght-multiplier-m: 2.75;
+  --h1-vf-wght-multiplier-l: 3;
+  /* H2 variables */
+  --h2-line-height-min: 1.15;
+  --h2-line-height-max: 1.25;
+  --h2-font-size-min: 1.5;
+  --h2-font-size-max: 3.5;
+  --h2-vf-wght-multiplier-s: 1.5;
+  --h2-vf-wght-multiplier-m: 1.75;
+  --h2-vf-wght-multiplier-l: 2;
+  /* H3 variables */
+  --h3-line-height-min: 1.15;
+  --h3-line-height-max: 1.25;
+  --h3-font-size-min: 1.25;
+  --h3-font-size-max: 2.5;
+  --h3-vf-wght-multiplier-s: 1.5;
+  --h3-vf-wght-multiplier-m: 1.25;
+  --h3-vf-wght-multiplier-l: 2;
+  /* H4 variables */
+  --h4-line-height-min: 1.15;
+  --h4-line-height-max: 1.25;
+  --h4-font-size-min: 1;
+  --h4-font-size-max: 1.125;
+  --h4-vf-wght-multiplier-s: 1.85;
+  --h4-vf-wght-multiplier-m: 1.95;
+  --h4-vf-wght-multiplier-l: 2;
+  }
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: 43.75em) {
+      font-size: 50%;
+  }
+}
+
+body {
+  color: var(--color-grep-b);
+  font-family: 'Output Sans V', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  background-color: var(--color-grep-z);
+  font-size: calc( var(--p-font-size-min) * 1.6rem);
+  font-variation-settings: "wght" var(--p-vf-wght), "wdth" 285, "opsz" calc( var(--p-font-size-min) * 16), "GRAD" 88;
+  line-height: var(--p-line-height-min);
+}
+
+
+
+th, 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+figcaption,
+cite,
+i,
+em,
+b,
+strong,
+button {
+  font-family: "Amstelvar VF", serif;
+	font-weight: normal;
+  font-style: normal;
+  font-variation-settings: 
+    'wght' var(--text-wght), 
+    'ital' var(--text-ital);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+p {
+  margin-right: auto; 
+  margin-left: auto;
+  transition: all .2s linear;
+
+  font-family: 'Output Sans V', sans-serif;
+}
+/* Variations and variables */
+p {
+  font-size: calc( var(--p-font-size-min) * 1rem );
+  line-height: var(--p-line-height-min);
+  @media screen and (min-width: 24.15em) {
+    line-height: calc(( var(--p-line-height-min) * 1em ) + ( var(--p-line-height-max) - var(--p-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-large) - var(--bp-small) )));
+  }
+  @media (min-width: 60.25em) {
+    font-size: calc(( var(--p-font-size-min) * 1em ) + ( var(--p-font-size-max) - var(--p-font-size-min) ) * ((100vw - ( var(--bp-large) * 1em )) / ( var(--bp-xlarge) - var(--bp-large) )));
+    line-height: var(--p-line-height-max);
+  }
+  @media (min-width: 75em) {
+    font-size: calc( var(--p-font-size-max) * 1rem );
+    max-width: 75rem;
+  }
+}
+
+
+
+/* Generic header styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+	transition: all linear 0.2s; 
+	--text-wght: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-s) );	
+}
+
+h1 {
+  /* Set --text-wght value multiplier */
+	--text-wght: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-s) );	
+  --text-ital: 0;
+
+  font-size: calc( var(--h1-font-size-min) * 1rem );
+  line-height: var(--h1-line-height-min);
+  margin: 1rem auto;
+  max-width: 50rem;
+  @media screen and (min-width: 24.15em) {
+    line-height: calc(( var(--h1-line-height-min) * 1rem ) + ( var(--h1-line-height-max) - var(--h1-line-height-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    font-size: calc(( var(--h1-font-size-min) * 1rem ) + ( var(--h1-font-size-max) - var(--h1-font-size-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
+  }
+  @media screen and (min-width: 43.75em) {
+	  --text-wght: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-m) );	
+    max-width: 60rem;
+  }
+  @media screen and (min-width: 60.25em) {
+	  --text-wght: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-l) );	
+    line-height: var(--h1-line-height-max);
+    max-width: 70rem;
+  }
+  @media (min-width: 75em) {
+    font-size: calc( var(--h1-font-size-max) * 1rem );
+    line-height: var(--h1-line-height-max);
+    max-width: 75rem;
+  }
+}
+
+
+
+
+
+h2 {
+  /* Set --text-wght value multiplier */
+	--text-wght: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-s) );
+  --text-ital: 0;
+
+  font-size: calc( var(--h2-font-size-min) * 1rem );
+  line-height: var(--h2-line-height-min);
+  margin: 1rem auto .5rem auto;
+  @media screen and (min-width: 24.15em) {
+    line-height: calc(( var(--h2-line-height-min) * 1rem ) + ( var(--h2-line-height-max) - var(--h2-line-height-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    font-size: calc(( var(--h2-font-size-min) * 1rem ) + ( var(--h2-font-size-max) - var(--h2-font-size-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
+  }
+  @media screen and (min-width: 43.75em) {
+  	--text-wght: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-m) );	
+
+  }
+  @media screen and (min-width: 60.25em) {
+  }
+  @media (min-width: 75em) {
+  	--text-wght: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-l) );	
+
+    font-size: calc( var(--h2-font-size-max) * 1rem );
+    line-height: var(--h2-line-height-max);
+  }
+}
+
+h3 {
+  /* Set --text-wght value multiplier */
+	--text-wght: calc( var(--p-vf-wght) * var(--h3-vf-wght-multiplier-s) );
+	--text-ital: 1;
+
+	color: #444466;
+  font-size: calc( var(--h2-font-size-min) * 1rem );
+  line-height: var(--h2-line-height-min);
+  margin: 1rem auto .5rem auto;
+  @media screen and (min-width: 24.15em) {
+    line-height: calc(( var(--h3-line-height-min) * 1rem ) + ( var(--h3-line-height-max) - var(--h3-line-height-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
+    font-size: calc(( var(--h3-font-size-min) * 1rem ) + ( var(--h3-font-size-max) - var(--h3-font-size-min) ) * ((100vw - ( var(--bp-small) * 1rem )) / ( var(--bp-xlarge) - var(--bp-small) )));
+  }
+  @media screen and (min-width: 43.75em) {
+  	--text-wght: calc( var(--p-vf-wght) * var(--h3-vf-wght-multiplier-m) );	
+
+  }
+  @media screen and (min-width: 60.25em) {
+  }
+  @media (min-width: 75em) {
+  	--text-wght: calc( var(--p-vf-wght) * var(--h3-vf-wght-multiplier-l) );	
+
+    font-size: calc( var(--h3-font-size-max) * 1rem );
+    line-height: var(--h3-line-height-max);
+    max-width: none;
+  }
+}
+
+
+
+
+
+
+
+
+img {
+  max-width: 100%; }
+/* 
+@media (max-width: 42rem) {
+  blockquote {
+    padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
+    margin-left: var(--spacing-0);
+  }
+  ul,
+  ol {
+    list-style-position: inside;
+  }
+} */
