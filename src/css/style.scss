@@ -95,7 +95,7 @@ html {
 }
 
 body {
-  --scale: 1;
+  --scale: 1px;
   color: var(--color-grep-b);
   font-family: 'Output Sans V', sans-serif;
   font-weight: 400;
@@ -105,7 +105,7 @@ body {
   line-height: var(--p-line-height-min);
   
   @media screen and (min-width: 24.15em) {
-    // from 0 to 1
+    // from 0.7px to 10px, actually you can't get 0, 
     --scale: ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )) /1.6;
   }
 }
