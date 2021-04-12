@@ -71,16 +71,16 @@ export default function Post({ data }) {
 }
 
 export const postQuery = graphql`
-query {
-	contentfulPosts(title: {eq: "startup now"}) {
-      title
-			content {
-				childMdx {
-					body
+  query($slug: String) {
+    contentfulPosts(slug: {eq: $slug}) {
+        title
+        content {
+          childMdx {
+            body
+          }
+                  
         }
-                
-      }
-    
+      
+    }
   }
-}
 `

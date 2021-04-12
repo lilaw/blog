@@ -26,13 +26,6 @@
 //     `
 //   )
 
-//   if (result.errors) {
-//     reporter.panicOnBuild(
-//       `There was an error loading your blog posts`,
-//       result.errors
-//     )
-//     return
-//   }
 
 //   const posts = result.data.allMarkdownRemark.nodes
 
@@ -113,3 +106,34 @@
 //     }
 //   `)
 // }
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const result = await graphql(`
+    query {
+      allContentfulPosts(sort: {fields: [createdAt], order: DESC}) {
+         nodes {
+          slug
+        }
+      }
+    }
+  `)
+ 
+  if (result.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your blog posts`,
+      result.errors
+    )
+    return
+  }
+  const posts = result.data.allContentfulPosts.nodes;
+
+  posts.forEach(post => {
+    actions.createPage({
+      path: post.slug,
+      component: require.resolve('./src/templates/post.js'),
+      context: {
+        slug: post.slug,
+      },
+    })
+  })
+}
