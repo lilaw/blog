@@ -1,30 +1,92 @@
-import * as React from "react"
 import { Link } from "gatsby"
+import React from "react"
+import { css } from "@emotion/react"
+import logo from "../images/logo.svg"
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
-  let header
+const outer = css`
+  background: linear-gradient(30deg, var(--color-lilac-e), var(--color-lilac-a));
+  padding: .5rem;
+`
+const inter = css`
+  background-color: var(--color-grey-z);
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: minmax(7rem, 1fr) repeat(2, minmax(min-content, 46.5rem));
+  grid-template-rows: 9rem;
+  gap: 1rem;
+  header {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    img {
 
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
+    }
   }
-
+  
+  nav {
+    background-color: var(--color-lilac-c);
+    justify-self: stretch;
+    align-self: baseline;
+    grid-column: 3 /4;
+    grid-row: 1 /3;
+    writing-mode: vertical-rl;
+    ul {
+      padding: 1rem;
+    }
+    li {
+      list-style-type: none;
+      &:not(:last-child) {
+        padding-left: .5rem;
+      }
+      a {
+        font-size: calc(1rem + 1 * var(--scale));
+        text-decoration: none;
+        color: var(--color-grey-b)
+      }
+    }
+  }
+  main {
+    height: min-content;
+    grid-column: 1 / 4;
+    grid-row-start: 2;
+  }
+  footer {
+    padding: 2em;
+    grid-column: 1 / -1;
+    text-align: center;
+    ::before {
+      padding-bottom: 1em;
+      display: block;
+      content: "";
+      width: 100%;
+      height: 1px;
+      border-top: 2px solid var(--color-grey-c);
+    }
+  }
+`
+const GradientBorder = ({children}) => {
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+      <div css={outer}><div css={inter}>{children}</div></div>
+  )
+}
+
+function Layout({ children }) {
+  return (
+    <GradientBorder>
+      <header>
+        <img src={logo} alt="logo image" width="70px"/>
+      </header>
+        <nav className="navigation">
+          <ul className="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Writing</a></li>
+            <li><a href="/">Labs</a></li>
+            <li><a href="/">About</a></li>
+          </ul>
+        </nav>
       <main>{children}</main>
-    </div>
+
+      <footer>All articles written with ❤ by apSomething</footer>
+    </GradientBorder>
   )
 }
 
