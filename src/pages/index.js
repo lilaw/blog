@@ -1,11 +1,9 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
 
 // import Bio from "../components/bio"
 // import Layout from "../components/layout"
 // import SEO from "../components/seo"
 import styled from "@emotion/styled"
-import { css } from "@emotion/react"
 import flower from "../images/flower.svg"
 
 const Container = styled.main`
@@ -80,6 +78,7 @@ const Container = styled.main`
 
 
 export default function UsersList() {
+  console.log('index')
   return (
     <Container>
         <h1 className="heading">Wellcome</h1>
