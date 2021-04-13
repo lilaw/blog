@@ -1,50 +1,33 @@
 import React from "react"
 import Layout from "../components/layout"
 import { css } from "@emotion/react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
-function Writing() {
+function Writing({
+  data: {
+    allContentfulPosts: { nodes: articles },
+  },
+}) {
   return (
     <Layout>
       <section css={style}>
         <h1>Writing & Article</h1>
         <div className="content">
-          <article>
-            <h2>Hightling from CSS</h2>
-            <p className="excerpt">
-              Chris Coyier asked a few folks to write about what excites them
-              about building websites this year. Shockingly, I volunteered to
-              write about variable fonts. But all in all, I think it's been an
-              exciting year for them, and feel...
-            </p>
-          </article>
-          <article>
-            <h2>Hightling from CSS</h2>
-            <p className="excerpt">
-              Chris Coyier asked a few folks to write about what excites them
-              about building websites this year. Shockingly, I volunteered to
-              write about variable fonts. But all in all, I think it's been an
-              exciting year for them, and feel...
-            </p>
-          </article>
-          <article>
-            <h2>Hightling from CSS</h2>
-            <p className="excerpt">
-              Chris Coyier asked a few folks to write about what excites them
-              about building websites this year. Shockingly, I volunteered to
-              write about variable fonts. But all in all, I think it's been an
-              exciting year for them, and feel...
-            </p>
-          </article>
-          <article>
-            <h2>Hightling from CSS</h2>
-            <p className="excerpt">
-              Chris Coyier asked a few folks to write about what excites them
-              about building websites this year. Shockingly, I volunteered to
-              write about variable fonts. But all in all, I think it's been an
-              exciting year for them, and feel...
-            </p>
-          </article>
+          {articles
+            .map(art => ({
+              slug: art.slug,
+              title: art.title,
+              excerpt: art.content.childMdx.excerpt,
+            }))
+            .map(art => (
+              <article>
+              <Link to={`/${art.slug}`}>
+                
+                <h2>{art.title}</h2>
+                <p className="excerpt">{art.excerpt}</p>
+              </Link>
+              </article>
+            ))}
         </div>
       </section>
     </Layout>
@@ -73,6 +56,10 @@ const style = css`
   }
   article {
     grid-column: auto / span 2;
+  }
+  a {
+    color: currentColor;
+    text-decoration: none;
   }
 `
 export const WritingQuery = graphql`
