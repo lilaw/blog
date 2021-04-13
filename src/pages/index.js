@@ -5,6 +5,7 @@ import * as React from "react"
 // import SEO from "../components/seo"
 import styled from "@emotion/styled"
 import flower from "../images/flower.svg"
+import { Link } from "gatsby"
 
 const Container = styled.main`
   max-width: 100%;
@@ -87,8 +88,8 @@ export default function UsersList() {
         </section>
         <nav className="navigation">
           <ul className="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Writing</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Writing</Link></li>
             <li><a href="/">Labs</a></li>
             <li><a href="/">About</a></li>
           </ul>

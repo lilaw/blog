@@ -77,10 +77,10 @@ function Layout({ children }) {
       </header>
         <nav className="navigation">
           <ul className="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Writing</a></li>
-            <li><a href="/">Labs</a></li>
-            <li><a href="/">About</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Writing</Link></li>
+            <li><Link to="/">Labs</Link></li>
+            <li><Link to="/">About</Link></li>
           </ul>
         </nav>
       <main>{children}</main>
