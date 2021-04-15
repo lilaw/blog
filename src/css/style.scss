@@ -41,7 +41,7 @@
   /* Paragraph variables */
   --p-line-height-min: 1.15;
   --p-line-height-max: 2.7;
-  --p-font-size-min: 1.4;
+  --p-font-size-min: 1.6;
   --p-font-size-max: 1.8;
   --p-vf-wght: 88;
   /* H1 variables */
@@ -49,17 +49,17 @@
   --h1-line-height-max: 7.25;
   --h1-font-size-min: 2.0;
   --h1-font-size-max: 5;
-  --h1-vf-wght-multiplier-s: 2.5;
-  --h1-vf-wght-multiplier-m: 2.75;
-  --h1-vf-wght-multiplier-l: 3;
+  --h1-vf-wght-multiplier-s: 4.5;
+  --h1-vf-wght-multiplier-m: 4.75;
+  --h1-vf-wght-multiplier-l: 5;
   /* H2 variables */
   --h2-line-height-min: 1.15;
   --h2-line-height-max: 1.25;
   --h2-font-size-min: 1.5;
   --h2-font-size-max: 3.5;
-  --h2-vf-wght-multiplier-s: 1.5;
-  --h2-vf-wght-multiplier-m: 1.75;
-  --h2-vf-wght-multiplier-l: 2;
+  --h2-vf-wght-multiplier-s: 3;
+  --h2-vf-wght-multiplier-m: 3.25;
+  --h2-vf-wght-multiplier-l: 3.5;
   /* H3 variables */
   --h3-line-height-min: 1.15;
   --h3-line-height-max: 1.25;
@@ -139,9 +139,8 @@ b,
 strong,
 button {
   font-family: "Amstelvar VF", serif;
-  font-variation-settings: 
-    'wght' var(--text-wght), 
-    'ital' var(--text-ital);
+  font-variation-settings: "wght" var(--text-wght), "wdth" 75, 'ital' var(--text-ital);
+  font-feature-settings: "liga", "kern";
 }
 
 
@@ -239,7 +238,6 @@ h3 {
 	--text-wght: calc( var(--p-vf-wght) * var(--h3-vf-wght-multiplier-s) );
 	--text-ital: 1;
 
-	color: #444466;
   font-size: calc( var(--h2-font-size-min) * 1rem );
   line-height: var(--h2-line-height-min);
   margin: 1rem auto .5rem auto;
