@@ -89,7 +89,7 @@ export default function UsersList() {
         <nav className="navigation">
           <ul className="menu">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/">Writing</Link></li>
+            <li><Link to="/writing">Writing</Link></li>
             <li><a href="/">Labs</a></li>
             <li><a href="/">About</a></li>
           </ul>

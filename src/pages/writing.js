@@ -41,11 +41,9 @@ const style = css`
     --h1-font-size-min: 4;
     --h1-font-size-max: 10;
     grid-column: 1 /-1;
-    font-variation-settings: "wght" 576, "ital" 0;
     max-width: initial;
   }
   h2 {
-    --h2-vf-wght-multiplier-l: 6;
     margin-bottom: 0.4em;
   }
   .content {
