@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 
 const article = css`
   display: grid;
-  grid-template-columns: 4fr minmax(min-content, 30rem) minmax(30rem, 32rem) 1fr;
+  grid-template-columns: 4fr minmax(min-content, 42rem) minmax(30rem, 32rem) 1fr;
   row-gap: 0.8em;
 
   > * {

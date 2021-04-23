@@ -23,7 +23,7 @@ const inter = css`
   }
   
   nav {
-    background-color: var(--color-lilac-c);
+    background-color: var(--color-lilac-e);
     justify-self: stretch;
     align-self: baseline;
     grid-column: 3 /4;
@@ -78,7 +78,7 @@ function Layout({ children }) {
         <nav className="navigation">
           <ul className="menu">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/">Writing</Link></li>
+            <li><Link to="/writing">Writing</Link></li>
             <li><Link to="/">Labs</Link></li>
             <li><Link to="/">About</Link></li>
           </ul>
