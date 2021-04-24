@@ -9,28 +9,26 @@ function Writing({
   },
 }) {
   return (
-    <Layout>
-      <section css={style}>
-        <h1>Writing & Article</h1>
-        <div className="content">
-          {articles
-            .map(art => ({
-              slug: art.slug,
-              title: art.title,
-              excerpt: art.content.childMdx.excerpt,
-            }))
-            .map(art => (
-              <article>
-              <Link to={`/${art.slug}`}>
-                
-                <h2>{art.title}</h2>
-                <p className="excerpt">{art.excerpt}</p>
-              </Link>
-              </article>
-            ))}
-        </div>
-      </section>
-    </Layout>
+    <section css={style}>
+      <h1>Writing & Article</h1>
+      <div className="content">
+        {articles
+          .map(art => ({
+            slug: art.slug,
+            title: art.title,
+            excerpt: art.content.childMdx.excerpt,
+          }))
+          .map(art => (
+            <article key={art.slug}>
+            <Link to={`/${art.slug}`}>
+              
+              <h2>{art.title}</h2>
+              <p className="excerpt">{art.excerpt}</p>
+            </Link>
+            </article>
+          ))}
+      </div>
+    </section>
   )
 }
 

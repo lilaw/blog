@@ -90,4 +90,10 @@ function Layout({ children }) {
   )
 }
 
-export default Layout
+export default ({ children, pageContext }) => {
+  // home page are no layout
+  if (pageContext.layout === "special") {
+    return children
+  }
+  return <Layout>{children}</Layout>
+}

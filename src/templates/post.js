@@ -100,11 +100,9 @@ const article = css`
 
 export default function Post({ data }) {
   return (
-    <Layout>
       <article css={article}>
         <MDXRenderer>{data.contentfulPosts.content.childMdx.body}</MDXRenderer>
       </article>
-    </Layout>
   )
 }
 

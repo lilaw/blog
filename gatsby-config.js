@@ -13,6 +13,12 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layout.js`),
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
           gatsbyRemarkPlugins: [

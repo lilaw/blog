@@ -137,3 +137,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 }
+
+exports.onCreatePage  = ({ page, actions }) => {
+  if (page.path === '/') {
+      page.context.layout = "special"
+      actions.createPage(page)
+  }
+}
