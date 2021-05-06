@@ -64,10 +64,10 @@
   --h3-line-height-min: 1.15;
   --h3-line-height-max: 1.25;
   --h3-font-size-min: 1.25;
-  --h3-font-size-max: 2.5;
+  --h3-font-size-max: 2.7;
   --h3-vf-wght-multiplier-s: 1.5;
   --h3-vf-wght-multiplier-m: 1.25;
-  --h3-vf-wght-multiplier-l: 2;
+  --h3-vf-wght-multiplier-l: 2.6;
   /* H4 variables */
   --h4-line-height-min: 1.15;
   --h4-line-height-max: 1.25;
@@ -144,7 +144,6 @@ button {
 }
 
 
-
 p {
   margin-right: auto; 
   margin-left: auto;
@@ -173,7 +172,7 @@ p {
 
 /* Generic header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
+ font-weight: var(--text-wght, normal);
 	transition: all linear 0.2s; 
 	--text-wght: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-s) );	
 }
