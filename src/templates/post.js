@@ -33,7 +33,7 @@ const article = css`
     max-width: 120rem;
     /* --h2-font-size-max: 4; */
     margin: 0;
-    padding-top: 1em;
+    padding-top: .5em;
     @media screen and (min-width: 75em) {
       justify-self: center;
     }
@@ -83,7 +83,7 @@ const article = css`
   .img-img {
     grid-column: var(--img-img, 2/4);
 
-    img {
+    img, figure {
       max-height: 50rem;
     }
     @media (min-width: 88em) {
@@ -95,6 +95,9 @@ const article = css`
       justify-items: center;
       column-gap: 3em;
     }
+  }
+  figure{
+    figcaption { padding: .4em 0}
   }
 `
 
@@ -118,3 +121,8 @@ export const postQuery = graphql`
     }
   }
 `
+// function print(){ console.log("Hello"); }
+// function wait1Second(){ //block thread for1 second }
+// setTimeout(print,0);
+//  wait1Second()
+// console.log("Me first!");
