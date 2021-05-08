@@ -121,8 +121,3 @@ export const postQuery = graphql`
     }
   }
 `
-// function print(){ console.log("Hello"); }
-// function wait1Second(){ //block thread for1 second }
-// setTimeout(print,0);
-//  wait1Second()
-// console.log("Me first!");
