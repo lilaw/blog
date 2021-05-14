@@ -79,8 +79,8 @@ function Layout({ children }) {
           <ul className="menu">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/writing">Writing</Link></li>
-            <li><Link to="/">Labs</Link></li>
-            <li><Link to="/">About</Link></li>
+            <li><Link to="/wip">Labs</Link></li>
+            <li><Link to="/wip">About</Link></li>
           </ul>
         </nav>
       <main>{children}</main>

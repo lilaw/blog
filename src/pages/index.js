@@ -79,7 +79,6 @@ const Container = styled.main`
 
 
 export default function UsersList() {
-  console.log('index')
   return (
     <Container>
         <h1 className="heading">Wellcome</h1>
@@ -90,8 +89,8 @@ export default function UsersList() {
           <ul className="menu">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/writing">Writing</Link></li>
-            <li><a href="/">Labs</a></li>
-            <li><a href="/">About</a></li>
+            <li><a href="/wip">Labs</a></li>
+            <li><a href="/wip">About</a></li>
           </ul>
         </nav>
 
