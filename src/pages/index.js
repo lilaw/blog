@@ -35,16 +35,16 @@ const Container = styled.main`
     writing-mode: vertical-rl;
     height: min-content;
     
-    ul {
+    .menu {
       padding: 1rem;
       height: 100%;
       display: flex;
       justify-content: flex-end;
       flex-direction: column;
-      li {
+      &__item {
         padding: .3rem;
         list-style: none;
-        a {
+        a, &__link {
           color: var(--color-grey-b);
           text-transform: uppercase;
           text-decoration: none;
@@ -69,7 +69,7 @@ const Container = styled.main`
     grid-column: 1 / -1;
     align-self: flex-end;
     overflow: hidden;
-    img {
+    &__image {
       width: 100%;
       transform: translateY(30%);
       transition: width .2s ease-in-out;
@@ -87,15 +87,15 @@ export default function UsersList() {
         </section>
         <nav className="navigation">
           <ul className="menu">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/writing">Writing</Link></li>
-            <li><a href="/wip">Labs</a></li>
-            <li><a href="/wip">About</a></li>
+            <li className="menu__item" ><Link to="/">Home</Link></li>
+            <li className="menu__item" ><Link to="/writing">Writing</Link></li>
+            <li className="menu__item" ><a href="/wip">Labs</a></li>
+            <li className="menu__item" ><a href="/wip">About</a></li>
           </ul>
         </nav>
 
         <footer className="flower">
-          <img src={flower} alt="flower image" />
+          <img className='flower__image' src={flower} alt="flower image" />
         </footer>
     </Container>
   )

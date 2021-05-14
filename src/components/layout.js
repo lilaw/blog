@@ -14,42 +14,39 @@ const inter = css`
   grid-template-columns: minmax(7rem, 1fr) repeat(2, minmax(min-content, 46.5rem));
   grid-template-rows: 9rem;
   gap: 1rem;
-  header {
+  .header {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
-    img {
-
-    }
   }
   
-  nav {
+  .navigation {
     background-color: var(--color-lilac-e);
     justify-self: stretch;
     align-self: baseline;
     grid-column: 3 /4;
     grid-row: 1 /3;
     writing-mode: vertical-rl;
-    ul {
+    .menu {
       padding: 1rem;
-    }
-    li {
-      list-style-type: none;
-      &:not(:last-child) {
-        padding-left: .5rem;
-      }
-      a {
-        font-size: calc(1rem + 1 * var(--scale));
-        text-decoration: none;
-        color: var(--color-grey-b)
+      &__item {
+        list-style-type: none;
+        &:not(:last-child) {
+          padding-left: .5rem;
+        }
+        a {
+          font-size: calc(1rem + 1 * var(--scale));
+          text-decoration: none;
+          color: var(--color-grey-b)
+        }
       }
     }
   }
-  main {
+  .main {
     height: min-content;
     grid-column: 1 / 4;
     grid-row-start: 2;
   }
-  footer {
+  .footer {
     padding: 2em;
     grid-column: 1 / -1;
     text-align: center;
@@ -72,20 +69,20 @@ const GradientBorder = ({children}) => {
 function Layout({ children }) {
   return (
     <GradientBorder>
-      <header>
-        <img src={logo} alt="logo image" width="70px"/>
+      <header className="header">
+        <img className="logo" src={logo} alt="logo image" width="70px"/>
       </header>
         <nav className="navigation">
           <ul className="menu">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/writing">Writing</Link></li>
-            <li><Link to="/wip">Labs</Link></li>
-            <li><Link to="/wip">About</Link></li>
+            <li className="menu__item" ><Link to="/">Home</Link></li>
+            <li className="menu__item" ><Link to="/writing">Writing</Link></li>
+            <li className="menu__item" ><Link to="/wip">Labs</Link></li>
+            <li className="menu__item" ><Link to="/wip">About</Link></li>
           </ul>
         </nav>
-      <main>{children}</main>
+      <main className="main">{children}</main>
 
-      <footer>All articles written with ❤ by apSomething</footer>
+      <footer className="footer">All articles written with ❤ by apSomething</footer>
     </GradientBorder>
   )
 }
