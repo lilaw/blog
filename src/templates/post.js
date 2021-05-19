@@ -6,8 +6,12 @@ import Layout from "../components/layout"
 
 const article = css`
   display: grid;
-  grid-template-columns: 4fr minmax(min-content, 42rem) minmax(30rem, 32rem) 1fr;
   row-gap: 0.8em;
+  grid-template-columns: 1px 1fr 1fr 1px;
+  @media (min-width: 60.25em) {
+    grid-template-columns: 4fr minmax(min-content, 42rem) minmax(30rem, 32rem) 1fr;
+    
+  }
 
   > * {
     grid-column: 2 /4;
@@ -15,7 +19,11 @@ const article = css`
   [data-language] {
     grid-column: 2 / 4;
     justify-self: stretch;
-    max-width: 72rem;
+    max-width: 100%;
+    @media (min-width: 60.25em) {
+      max-width: 72rem;
+    
+    }
   }
   h1 {
     --h1-line-height-min: 5;
