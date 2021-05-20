@@ -87,6 +87,7 @@ module.exports = {
                 escapeEntities: {},
               },
             },
+            `gatsby-remark-images`
           ],
       }
     },

@@ -6,6 +6,7 @@ import * as React from "react"
 import styled from "@emotion/styled"
 import flower from "../images/flower.svg"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Container = styled.main`
   max-width: 100%;
@@ -87,14 +88,7 @@ const Container = styled.main`
     grid-row: 1/ 3;
     grid-column: 2 / 7;
     align-self: flex-start;
-    --scale: 1px;
     align-self: flex-end;
-    @media screen and (min-width: 24.15em) {
-      // scale for home page introduction text
-      // from 0.7px to 10px, actually you can't get 0, 
-      --scale: ((100vw - ( var(--bp-small) * 16px )) / ( var(--bp-xlarge) - var(--bp-small) )) /1.6;
-    
-    }
     @media (min-width: 60.25em) {
       grid-row: 2/ 4;
       grid-column: 2 / 4;
@@ -134,7 +128,8 @@ export default function UsersList() {
         </nav>
 
         <footer className="flower">
-          <img className='flower__image' src={flower} alt="flower image" />
+
+          <StaticImage className="flower__image" src="../images/flower.svg" alt="flower image"  quality={100} layout="fullWidth"/>
         </footer>
     </Container>
   )

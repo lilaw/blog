@@ -114,6 +114,13 @@ body {
   font-size: calc( var(--p-font-size-min) * 1rem);
   line-height: var(--p-line-height-min);
   
+  --scale: 1px;
+  @media screen and (min-width: 24.15em) {
+    // scale for home page introduction text, layout nav text
+    // from 0.7px to 10px, actually you can't get 0, 
+    --scale: ((100vw - ( var(--bp-small) * 16px )) / ( var(--bp-xlarge) - var(--bp-small) )) /1.6;
+  
+  }
 }
 
 

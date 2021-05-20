@@ -31,7 +31,6 @@ const inter = css`
       &__item {
         list-style-type: none;
         &:not(:last-child) {
-          padding-left: .5rem;
         }
         a {
           font-size: calc(1rem + 1 * var(--scale));
