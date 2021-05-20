@@ -122,7 +122,7 @@ export default function UsersList() {
           <ul className="menu">
             <li className="menu__item" ><Link to="/">Home</Link></li>
             <li className="menu__item" ><Link to="/writing">Writing</Link></li>
-            <li className="menu__item" ><a href="/wip">Labs</a></li>
+            <li className="menu__item" ><a href="/labs">Labs</a></li>
             <li className="menu__item" ><a href="/wip">About</a></li>
           </ul>
         </nav>
