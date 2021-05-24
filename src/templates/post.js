@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { css } from "@emotion/react"
 import * as React from "react"
-import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const article = css`
   display: grid;
@@ -109,11 +109,14 @@ const article = css`
   }
 `
 
-export default function Post({ data }) {
+export default function Post({ data: {contentfulPosts: {title, content}} }) {
   return (
+    <>
+      <SEO title={title} description={content.childMdx.excerpt} />
       <article css={article}>
-        <MDXRenderer>{data.contentfulPosts.content.childMdx.body}</MDXRenderer>
+        <MDXRenderer>{content.childMdx.body}</MDXRenderer>
       </article>
+    </>
   )
 }
 
@@ -124,6 +127,7 @@ export const postQuery = graphql`
       content {
         childMdx {
           body
+          excerpt
         }
       }
     }

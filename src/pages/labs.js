@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { css } from "@emotion/react"
 import { GatsbyImage } from "gatsby-plugin-image"
+import SEO from "../components/seo"
 
 const style = css`
   padding: 4rem 5vw 3rem;
@@ -84,6 +85,9 @@ export default function labs({ data }) {
     data.allImageSharp.nodes
   )
   return (
+    <>
+
+      <SEO title={'Labs'} description={"experiments demonstrating Grid design, and probability in on the web."} />
     <section css={style}>
       <ul className="demo">
         {mergedData.map(
@@ -107,6 +111,7 @@ export default function labs({ data }) {
         )}
       </ul>
     </section>
+    </>
   )
 }
 

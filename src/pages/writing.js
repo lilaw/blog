@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { css } from "@emotion/react"
 import { graphql, Link } from "gatsby"
+import SEO from "../components/seo"
 
 function Writing({
   data: {
@@ -9,26 +10,28 @@ function Writing({
   },
 }) {
   return (
-    <section css={style}>
-      <h1>Writing & Article</h1>
-      <div className="content">
-        {articles
-          .map(art => ({
-            slug: art.slug,
-            title: art.title,
-            excerpt: art.content.childMdx.excerpt,
-          }))
-          .map(art => (
-            <article key={art.slug}>
-            <Link to={`/${art.slug}`}>
-              
-              <h2>{art.title}</h2>
-              <p className="excerpt">{art.excerpt}</p>
-            </Link>
-            </article>
-          ))}
-      </div>
-    </section>
+    <>
+      <SEO title={"Writing"} description={"apSomething blog posts"} />
+      <section css={style}>
+        <h1>Writing & Article</h1>
+        <div className="content">
+          {articles
+            .map(art => ({
+              slug: art.slug,
+              title: art.title,
+              excerpt: art.content.childMdx.excerpt,
+            }))
+            .map(art => (
+              <article key={art.slug}>
+                <Link to={`/${art.slug}`}>
+                  <h2>{art.title}</h2>
+                  <p className="excerpt">{art.excerpt}</p>
+                </Link>
+              </article>
+            ))}
+        </div>
+      </section>
+    </>
   )
 }
 
