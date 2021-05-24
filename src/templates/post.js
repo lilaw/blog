@@ -26,8 +26,7 @@ const article = css`
     }
   }
   h1 {
-    --h1-line-height-min: 5;
-    --h1-line-height-max: 8.5;
+    --h1-line-height-max: 10.5;
     --h1-font-size-min: 4;
     --h1-font-size-max: 10;
     grid-column: 1 /-1;
