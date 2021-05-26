@@ -6,6 +6,7 @@ import logo from "../images/logo.svg"
 const outer = css`
   background: linear-gradient(30deg, var(--color-lilac-e), var(--color-lilac-a));
   padding: .5rem;
+  min-height: cal(100vh - 1rem);
 `
 const inter = css`
   background-color: var(--color-grey-z);
@@ -14,6 +15,7 @@ const inter = css`
   grid-template-columns: minmax(7rem, 1fr) repeat(2, minmax(min-content, 46.5rem));
   grid-template-rows: 9rem;
   gap: 1rem;
+  min-height: calc(100vh - 1rem);
   .header {
     grid-row: 1 / 2;
     grid-column: 1 / 2;

@@ -54,8 +54,8 @@
   --h1-vf-wght-multiplier-m: 4.75;
   --h1-vf-wght-multiplier-l: 5;
   /* H2 variables */
-  --h2-line-height-min: 1.15;
-  --h2-line-height-max: 1.25;
+  --h2-line-height-min: 2.25;
+  --h2-line-height-max: 4.25;
   --h2-font-size-min: 2.5;
   --h2-font-size-max: 3.5;
   --h2-vf-wght-multiplier-s: 3;
@@ -231,7 +231,7 @@ h2 {
   	--text-wght: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-l) );	
 
     font-size: calc( var(--h2-font-size-max) * 1rem );
-    line-height: var(--h2-line-height-max);
+    line-height: calc(var(--h2-line-height-max) * 1rem);
   }
 }
 
