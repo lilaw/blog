@@ -10,7 +10,6 @@ const article = css`
   grid-template-columns: 1px 1fr 1fr 1px;
   @media (min-width: 60.25em) {
     grid-template-columns: 4fr minmax(min-content, 42rem) minmax(30rem, 32rem) 1fr;
-    
   }
 
   > * {
@@ -22,7 +21,6 @@ const article = css`
     max-width: 100%;
     @media (min-width: 60.25em) {
       max-width: 72rem;
-    
     }
   }
   h1 {
@@ -40,7 +38,7 @@ const article = css`
     max-width: 120rem;
     /* --h2-font-size-max: 4; */
     margin: 0;
-    padding-top: .5em;
+    padding-top: 0.5em;
     @media screen and (min-width: 75em) {
       justify-self: center;
     }
@@ -90,7 +88,8 @@ const article = css`
   .img-img {
     grid-column: var(--img-img, 2/4);
 
-    img, figure {
+    img,
+    figure {
       max-height: 50rem;
     }
     @media (min-width: 88em) {
@@ -103,12 +102,18 @@ const article = css`
       column-gap: 3em;
     }
   }
-  figure{
-    figcaption { padding: .4em 0}
+  figure {
+    figcaption {
+      padding: 0.4em 0;
+    }
   }
 `
 
-export default function Post({ data: {contentfulPosts: {title, content}} }) {
+export default function Post({
+  data: {
+    contentfulPosts: { title, content },
+  },
+}) {
   return (
     <>
       <SEO title={title} description={content.childMdx.excerpt} />

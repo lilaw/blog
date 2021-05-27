@@ -32,6 +32,7 @@
     "gatsby-transformer-sharp": "^3.5.0",
     "match-sorter": "^6.3.0",
     "prismjs": "^1.23.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
@@ -40,10 +41,15 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "eslint": "^7.27.0",
+    "eslint-config-kentcdodds": "^18.0.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.2.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
+    "kentcdodds/jsx-a11y",
     "gatsby"
   ],
   "license": "0BSD",
@@ -55,10 +61,15 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|less|ts|tsx|graphql|md|mdx)\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.+(js|jsx|json|yml|yaml|less|scss|ts|tsx|graphql|md|mdx)": "prettier --write"
   }
 }

@@ -50,17 +50,16 @@ const style = css`
     }
     .dictionary {
       @media (min-width: 60.25em) {
-      grid-row: 1 / 3;
+        grid-row: 1 / 3;
         grid-column: span 2;
         order: 3;
       }
-
     }
   }
 `
 
 export default function labs({ data }) {
-  let projectMetaDate = [
+  const projectMetaDate = [
     {
       className: "email",
       liveLink: "https://6ddf4f52.mail-j4ww.pages.dev/start",
@@ -80,37 +79,49 @@ export default function labs({ data }) {
       codeLink: "https://github.com/lilaw/dictionary",
     },
   ]
-  let mergedData = mergeProjectMetaImageData(
+  const mergedData = mergeProjectMetaImageData(
     projectMetaDate,
     data.allImageSharp.nodes
   )
   return (
     <>
-
-      <SEO title={'Labs'} description={"experiments demonstrating Grid design, and probability in on the web."} />
-    <section css={style}>
-      <ul className="demo">
-        {mergedData.map(
-          ({ className, liveLink, description, codeLink, img }) => (
-            <li className={`demo__item ${className}`} key={className}>
-              <a className="demo__link" href={liveLink} target="_blank">
-                <h4 className="demo__describe">{description}</h4>
-                <GatsbyImage
-                  className="demo__img"
-                  image={img}
-                  alt="project image"
-                />
-              </a>
-              <p className="demo__describe--sub">
-                <a className="demo__link" href={codeLink} target="_blank">
-                  On Github
+      <SEO
+        title="Labs"
+        description="experiments demonstrating Grid design, and probability in on the web."
+      />
+      <section css={style}>
+        <ul className="demo">
+          {mergedData.map(
+            ({ className, liveLink, description, codeLink, img }) => (
+              <li className={`demo__item ${className}`} key={className}>
+                <a
+                  className="demo__link"
+                  href={liveLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <h4 className="demo__describe">{description}</h4>
+                  <GatsbyImage
+                    className="demo__img"
+                    image={img}
+                    alt="project image"
+                  />
                 </a>
-              </p>
-            </li>
-          )
-        )}
-      </ul>
-    </section>
+                <p className="demo__describe--sub">
+                  <a
+                    className="demo__link"
+                    href={codeLink}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    On Github
+                  </a>
+                </p>
+              </li>
+            )
+          )}
+        </ul>
+      </section>
     </>
   )
 }
@@ -136,8 +147,8 @@ function mergeProjectMetaImageData(meta, imageData) {
       `project mate date length should match total number of image, because every project should has a cover image`
     )
   }
-  let [metaHead, ...metaTail] = meta
-  let [imageDataHead, ...imageDataTail] = imageData
+  const [metaHead, ...metaTail] = meta
+  const [imageDataHead, ...imageDataTail] = imageData
 
   return metaHead === undefined
     ? []

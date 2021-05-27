@@ -26,7 +26,6 @@
 //     `
 //   )
 
-
 //   const posts = result.data.allMarkdownRemark.nodes
 
 //   // Create blog posts pages
@@ -110,14 +109,14 @@
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(`
     query {
-      allContentfulPosts(sort: {fields: [createdAt], order: DESC}) {
-         nodes {
+      allContentfulPosts(sort: { fields: [createdAt], order: DESC }) {
+        nodes {
           slug
         }
       }
     }
   `)
- 
+
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
@@ -125,12 +124,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     )
     return
   }
-  const posts = result.data.allContentfulPosts.nodes;
+  const posts = result.data.allContentfulPosts.nodes
 
   posts.forEach(post => {
     actions.createPage({
       path: post.slug,
-      component: require.resolve('./src/templates/post.js'),
+      component: require.resolve("./src/templates/post.js"),
       context: {
         slug: post.slug,
       },
@@ -138,9 +137,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 }
 
-exports.onCreatePage  = ({ page, actions }) => {
-  if (page.path === '/') {
-      page.context.layout = "special"
-      actions.createPage(page)
+exports.onCreatePage = ({ page, actions }) => {
+  if (page.path === "/") {
+    page.context.layout = "special"
+    actions.createPage(page)
   }
 }

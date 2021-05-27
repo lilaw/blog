@@ -4,22 +4,6 @@ import { css } from "@emotion/react"
 import { graphql } from "gatsby"
 import SEO from "../components/seo"
 
-function Writing({
-  data: {
-    allContentfulPosts: { nodes: articles },
-  },
-  data,
-}) {
-  return (
-    <>
-      <SEO title={"Writing"} description={"apSomething blog posts"} />
-      <section css={style}>
-        <Search blogposts={data} />
-      </section>
-    </>
-  )
-}
-
 const style = css`
   .headingAndSearch {
     grid-column: 1 /-1;
@@ -36,8 +20,18 @@ const style = css`
     --h1-font-size-max: 10;
     max-width: initial;
   }
-  
 `
+
+function Writing({ data }) {
+  return (
+    <>
+      <SEO title="Writing" description="apSomething blog posts" />
+      <section css={style}>
+        <Search blogposts={data} />
+      </section>
+    </>
+  )
+}
 export const WritingQuery = graphql`
   query {
     allContentfulPosts(sort: { fields: [createdAt], order: DESC }) {

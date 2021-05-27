@@ -4,15 +4,22 @@ import { css } from "@emotion/react"
 import logo from "../images/logo.svg"
 
 const outer = css`
-  background: linear-gradient(30deg, var(--color-lilac-e), var(--color-lilac-a));
-  padding: .5rem;
+  background: linear-gradient(
+    30deg,
+    var(--color-lilac-e),
+    var(--color-lilac-a)
+  );
+  padding: 0.5rem;
   min-height: cal(100vh - 1rem);
 `
 const inter = css`
   background-color: var(--color-grey-z);
   display: grid;
   padding: 2rem;
-  grid-template-columns: minmax(7rem, 1fr) repeat(2, minmax(min-content, 46.5rem));
+  grid-template-columns: minmax(7rem, 1fr) repeat(
+      2,
+      minmax(min-content, 46.5rem)
+    );
   grid-template-rows: 9rem;
   gap: 1rem;
   min-height: calc(100vh - 1rem);
@@ -20,7 +27,7 @@ const inter = css`
     grid-row: 1 / 2;
     grid-column: 1 / 2;
   }
-  
+
   .navigation {
     background-color: var(--color-lilac-e);
     justify-self: stretch;
@@ -37,7 +44,7 @@ const inter = css`
         a {
           font-size: calc(1rem + 1 * var(--scale));
           text-decoration: none;
-          color: var(--color-grey-b)
+          color: var(--color-grey-b);
         }
       }
     }
@@ -61,9 +68,11 @@ const inter = css`
     }
   }
 `
-const GradientBorder = ({children}) => {
+const GradientBorder = ({ children }) => {
   return (
-      <div css={outer}><div css={inter}>{children}</div></div>
+    <div css={outer}>
+      <div css={inter}>{children}</div>
+    </div>
   )
 }
 
@@ -71,24 +80,34 @@ function Layout({ children }) {
   return (
     <GradientBorder>
       <header className="header">
-        <img className="logo" src={logo} alt="logo image" width="70px"/>
+        <img className="logo" src={logo} alt="logo image" width="70px" />
       </header>
-        <nav className="navigation">
-          <ul className="menu">
-            <li className="menu__item" ><Link to="/">Home</Link></li>
-            <li className="menu__item" ><Link to="/writing">Writing</Link></li>
-            <li className="menu__item" ><Link to="/labs">Labs</Link></li>
-            <li className="menu__item" ><Link to="/wip">About</Link></li>
-          </ul>
-        </nav>
+      <nav className="navigation">
+        <ul className="menu">
+          <li className="menu__item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="menu__item">
+            <Link to="/writing">Writing</Link>
+          </li>
+          <li className="menu__item">
+            <Link to="/labs">Labs</Link>
+          </li>
+          <li className="menu__item">
+            <Link to="/wip">About</Link>
+          </li>
+        </ul>
+      </nav>
       <main className="main">{children}</main>
 
-      <footer className="footer">All articles written with ❤ by apSomething</footer>
+      <footer className="footer">
+        All articles written with ❤ by apSomething
+      </footer>
     </GradientBorder>
   )
 }
 
-export default ({ children, pageContext }) => {
+export default function hasLayoutOrnot({ children, pageContext }) {
   // home page are no layout
   if (pageContext.layout === "special") {
     return children

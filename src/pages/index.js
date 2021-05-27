@@ -1,10 +1,7 @@
 import * as React from "react"
 
-// import Bio from "../components/bio"
-// import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "@emotion/styled"
-import flower from "../images/flower.svg"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -14,10 +11,12 @@ const Container = styled.main`
   background-color: var(--color-lilac-f);
   display: grid;
   grid-template-rows: 15vh 15vh 20vh 20vh 30vh;
-  grid-template-columns: [side-start] minmax(6rem, 1fr) [center-start] repeat(
+  grid-template-columns:
+    [side-start] minmax(6rem, 1fr) [center-start] repeat(
       8,
       [col-start] 1fr [col-end]
-    ) [center-end] minmax(6rem, 1fr) [side-end];
+    )
+    [center-end] minmax(6rem, 1fr) [side-end];
   .heading {
     margin: 0;
     font-variation-settings: "wght" 661, "ital" 0, "YTFI" 723, "YTDE" -225,
@@ -118,7 +117,7 @@ const Container = styled.main`
 export default function UsersList() {
   return (
     <>
-      <SEO title={"Home"} />
+      <SEO title="Home" />
       <Container>
         <h1 className="heading">Wellcome</h1>
         <section className="introduction">
