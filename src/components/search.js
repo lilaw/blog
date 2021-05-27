@@ -54,12 +54,13 @@ const searchStyle = css`
       border-radius: 0.2em;
     }
   }
-  .blogPosts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 2fr));
-    row-gap: 2em;
-    column-gap: 1.5em;
-  }
+`
+
+const blogPostCardStyle = css`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 2fr));
+  row-gap: 2em;
+  column-gap: 1.5em;
   .blogPostCard {
     &__title {
       margin-bottom: 0.4em;
@@ -75,7 +76,6 @@ const searchStyle = css`
     text-decoration: none;
   }
 `
-
 // eslint-disable-next-line no-unused-vars
 const TagBtn = styled.button`
   background-color: ${props =>
@@ -182,7 +182,7 @@ export default function Search(props) {
           </ul>
         </div>
       </div>
-      <div className="blogPosts">
+      <div className="blogPosts" css={blogPostCardStyle}>
         {filteredArticle.map(art => (
           <article key={art.slug} className="blogPostCard">
             <Link to={`/${art.slug}`}>
