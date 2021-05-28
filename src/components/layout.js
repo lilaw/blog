@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 import { css } from "@emotion/react"
 import logo from "../images/logo.svg"
+import { useMatch } from "@reach/router"
 
 const outer = css`
   background: linear-gradient(
@@ -35,17 +36,20 @@ const inter = css`
     grid-column: 3 /4;
     grid-row: 1 /3;
     writing-mode: vertical-rl;
-    .menu {
-      padding: 1rem;
-      &__item {
-        list-style-type: none;
-        &:not(:last-child) {
-        }
-        a {
-          font-size: calc(1rem + 1 * var(--scale));
-          text-decoration: none;
-          color: var(--color-grey-b);
-        }
+  }
+  .menu {
+    padding: 1rem;
+    &__item {
+      list-style-type: none;
+      border-top: 0.1em solid transparent;
+
+      padding: 0.5em 0 0.6em 0;
+      &:not(:last-child) {
+      }
+      a {
+        font-size: calc(1rem + 1 * var(--scale));
+        text-decoration: none;
+        color: var(--color-grey-b);
       }
     }
   }
@@ -77,6 +81,9 @@ const GradientBorder = ({ children }) => {
 }
 
 function Layout({ children }) {
+  const isWriting = useMatch("/writing")
+  const isLabs = useMatch("/labs")
+
   return (
     <GradientBorder>
       <header className="header">
@@ -87,10 +94,24 @@ function Layout({ children }) {
           <li className="menu__item">
             <Link to="/">Home</Link>
           </li>
-          <li className="menu__item">
+          <li
+            className="menu__item"
+            style={
+              isWriting
+                ? { "border-top": ".1em solid var(--color-grey-b)" }
+                : undefined
+            }
+          >
             <Link to="/writing">Writing</Link>
           </li>
-          <li className="menu__item">
+          <li
+            className="menu__item"
+            style={
+              isLabs
+                ? { "border-top": ".1em solid var(--color-grey-b)" }
+                : undefined
+            }
+          >
             <Link to="/labs">Labs</Link>
           </li>
           <li className="menu__item">
