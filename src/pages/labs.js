@@ -55,6 +55,13 @@ const style = css`
         order: 3;
       }
     }
+    .bookshelf {
+      @media (min-width: 60.25em) {
+        grid-row: 3 / 4;
+        grid-column: 2 / span 2;
+        order: 3;
+      }
+    }
   }
 `
 
@@ -77,6 +84,18 @@ export default function labs({ data }) {
       liveLink: "https://dictionary-46i7.pages.dev/",
       description: "Merriam-webster learner's dictionary",
       codeLink: "https://github.com/lilaw/dictionary",
+    },
+    {
+      className: "bookshelf",
+      liveLink: "https://dictionary-46i7.pages.dev/",
+      description: "My favourite books",
+      codeLink: "https://github.com/lilaw/bookshelf",
+    },
+    {
+      className: "grid",
+      liveLink: "https://grid-2lb.pages.dev/",
+      description: "Draw CSS Grid",
+      codeLink: "https://github.com/lilaw/grid",
     },
   ]
   const mergedData = mergeProjectMetaImageData(
