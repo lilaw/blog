@@ -1,0 +1,37 @@
+[
+  {
+    "className": "email",
+    "fileName": "projects__03email",
+    "liveLink": "https://6ddf4f52.mail-j4ww.pages.dev/start",
+    "description": "Html Email",
+    "codeLink": "https://github.com/lilaw/mail"
+  },
+  {
+    "className": "blog",
+    "fileName": "projects__01blog",
+    "liveLink": "/",
+    "description": "Blog",
+    "codeLink": "https://github.com/lilaw/blog"
+  },
+  {
+    "className": "dictionary",
+    "fileName": "projects__02dictionary",
+    "liveLink": "https://dictionary-46i7.pages.dev/",
+    "description": "Merriam-webster learner's dictionary",
+    "codeLink": "https://github.com/lilaw/dictionary"
+  },
+  {
+    "className": "bookshelf",
+    "fileName": "projects__04bookshelf",
+    "liveLink": "https://bookshelf.pages.dev/",
+    "description": "My favourite books",
+    "codeLink": "https://github.com/lilaw/bookshelf"
+  },
+  {
+    "className": "grid",
+    "fileName": "projects__05grid",
+    "liveLink": "https://grid-2lb.pages.dev/",
+    "description": "Draw CSS Grid",
+    "codeLink": "https://github.com/lilaw/grid"
+  }
+]

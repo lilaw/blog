@@ -65,43 +65,11 @@ const style = css`
   }
 `
 
-export default function labs({ data }) {
-  const projectMetaDate = [
-    {
-      className: "email",
-      liveLink: "https://6ddf4f52.mail-j4ww.pages.dev/start",
-      description: "Html Email",
-      codeLink: "https://github.com/lilaw/mail",
-    },
-    {
-      className: "blog",
-      liveLink: "/",
-      description: "Blog",
-      codeLink: "https://github.com/lilaw/blog",
-    },
-    {
-      className: "dictionary",
-      liveLink: "https://dictionary-46i7.pages.dev/",
-      description: "Merriam-webster learner's dictionary",
-      codeLink: "https://github.com/lilaw/dictionary",
-    },
-    {
-      className: "bookshelf",
-      liveLink: "https://dictionary-46i7.pages.dev/",
-      description: "My favourite books",
-      codeLink: "https://github.com/lilaw/bookshelf",
-    },
-    {
-      className: "grid",
-      liveLink: "https://grid-2lb.pages.dev/",
-      description: "Draw CSS Grid",
-      codeLink: "https://github.com/lilaw/grid",
-    },
-  ]
-  const mergedData = mergeProjectMetaImageData(
-    projectMetaDate,
-    data.allImageSharp.nodes
-  )
+export default function labs({
+  data: {
+    allProject: { nodes: projects },
+  },
+}) {
   return (
     <>
       <SEO
@@ -110,8 +78,8 @@ export default function labs({ data }) {
       />
       <section css={style}>
         <ul className="demo">
-          {mergedData.map(
-            ({ className, liveLink, description, codeLink, img }) => (
+          {projects.map(
+            ({ className, liveLink, description, codeLink, cover }) => (
               <li className={`demo__item ${className}`} key={className}>
                 <a
                   className="demo__link"
@@ -122,8 +90,8 @@ export default function labs({ data }) {
                   <h4 className="demo__describe">{description}</h4>
                   <GatsbyImage
                     className="demo__img"
-                    image={img}
-                    alt="project image"
+                    image={cover.childImageSharp.gatsbyImageData}
+                    alt={className}
                   />
                 </a>
                 <p className="demo__describe--sub">
@@ -147,45 +115,18 @@ export default function labs({ data }) {
 
 export const pageQuery = graphql`
   query {
-    allImageSharp(filter: { fluid: { originalImg: { regex: "/projects/" } } }) {
+    allProject {
       nodes {
-        gatsbyImageData
-        fluid {
-          originalName
+        cover {
+          childImageSharp {
+            gatsbyImageData
+          }
         }
+        liveLink
+        codeLink
+        className
+        description
       }
     }
   }
 `
-
-// image store in src/images/ folder
-function mergeProjectMetaImageData(meta, imageData) {
-  if (meta.length !== imageData.length) {
-    console.error({ meta, imageData })
-    throw new Error(
-      `project mate date length should match total number of image, because every project should has a cover image`
-    )
-  }
-  const [metaHead, ...metaTail] = meta
-  const [imageDataHead, ...imageDataTail] = imageData
-
-  return metaHead === undefined
-    ? []
-    : classNameMatchFileName(
-        metaHead.className,
-        imageDataHead.fluid.originalName
-      )
-    ? [
-        composeObject(metaHead, imageDataHead),
-        ...mergeProjectMetaImageData(metaTail, imageDataTail),
-      ]
-    : mergeProjectMetaImageData([...metaTail, metaHead], imageData)
-}
-
-function composeObject(a, b) {
-  return { ...a, img: b.gatsbyImageData }
-}
-
-function classNameMatchFileName(className, fileName) {
-  return new RegExp(className).test(fileName)
-}

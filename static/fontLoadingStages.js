@@ -1,4 +1,5 @@
-;(function () {
+/*
+(function () {
   document.documentElement.className += " wf-inactive"
 
   // Optimization for Repeat Views
@@ -19,3 +20,4 @@
     sessionStorage.foutFontsLoaded = true
   })
 })()
+*/

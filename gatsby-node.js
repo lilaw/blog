@@ -105,6 +105,29 @@
 //     }
 //   `)
 // }
+const projects = require("./content/lab/projects.json")
+
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  const { createNode, createTypes } = actions
+
+  createTypes(`
+  type Project implements Node { cover: File @link(from: "fileName", by: "name") }
+  `)
+
+  projects.forEach(project => {
+    createNode({
+      ...project,
+      id: createNodeId(`project-${project.className}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: "Project",
+        content: JSON.stringify(project),
+        contentDigest: createContentDigest(project),
+      },
+    })
+  })
+}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(`

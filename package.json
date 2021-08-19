@@ -61,6 +61,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "develop:debug": "node --inspect-brk  ./node_modules/.bin/gatsby develop",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|less|ts|tsx|graphql|md|mdx)\"",
     "start": "npm run develop",
     "clean": "gatsby clean",
@@ -69,7 +70,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
+    "src/*.js": "eslint --cache --fix",
     "*.+(js|jsx|json|yml|yaml|less|scss|ts|tsx|graphql|md|mdx)": "prettier --write"
   }
 }
