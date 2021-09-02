@@ -10,7 +10,10 @@ const Container = styled.main`
   margin: 0 auto;
   background-color: var(--color-lilac-f);
   display: grid;
-  grid-template-rows: 15vh 15vh 20vh 20vh 30vh;
+  grid-template-rows: 25vh 25vh 20vh 20vh 30vh;
+  @media (min-width: 60.25em) {
+    grid-template-rows: 15vh 15vh 20vh 20vh 30vh;
+  }
   grid-template-columns:
     [side-start] minmax(6rem, 1fr) [center-start] repeat(
       8,
@@ -81,7 +84,8 @@ const Container = styled.main`
     @media (min-width: 75em) {
     }
   }
-  .introduction {
+  .design {
+    display: none;
     padding: 0.4rem 1rem;
     border: 0.5rem solid var(--color-lilac-c);
     width: min-content;
@@ -100,6 +104,93 @@ const Container = styled.main`
     }
     @media (min-width: 75em) {
     }
+  }
+  .poster {
+    grid-row: 1/ 3;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    &__right-angle {
+      width: 27%;
+      height: 27%;
+      justify-self: center;
+      align-self: center;
+      border: 0.3rem solid var(--color-grey-b);
+      &--top-left {
+        grid-row: 2 / 4;
+        grid-column: 1 / 3;
+        border-top: none;
+        border-left: none;
+        transform: translate(20%, 20%);
+      }
+      &--top-right {
+        grid-row: 2 / 4;
+        grid-column: 4 / 7;
+        border-top: none;
+        border-right: none;
+        transform: translate(-20%, 20%);
+      }
+      &--bottom-left {
+        grid-row: 5 / 7;
+        grid-column: 1 / 3;
+        border-bottom: none;
+        border-left: none;
+        transform: translate(20%, -20%);
+      }
+      &--bottom-right {
+        grid-row: 5 / 7;
+        grid-column: 4 / 6;
+        border-bottom: none;
+        border-right: none;
+        transform: translate(-20%, -20%);
+      }
+    }
+    h2 {
+      justify-self: center;
+      align-self: center;
+      font-variation-settings: "wght" 600, "wdth" 75, "YOPQ" 125;
+      color: var(--color-lilac-d);
+      --h2-font-size-max: 8;
+      --h2-font-size-min: 3.5;
+    }
+    h2:nth-of-type(1) {
+      grid-row: 3 / 5;
+      grid-column: 2 / 4;
+    }
+    h2:nth-of-type(2) {
+      grid-row: 4 / 6;
+      grid-column: 3 / 5;
+    }
+    h2:nth-of-type(3) {
+      grid-row: 1 / 3;
+      grid-column: 5 / 7;
+    }
+    h2:nth-of-type(4) {
+      grid-row: 1 / 3;
+      grid-column: 3 / 4;
+    }
+    h2:nth-of-type(5) {
+      grid-row: 6 / 8;
+      grid-column: 2 / 3;
+    }
+    &::after {
+      content: "";
+      display: block;
+      grid-row: 3/ 6;
+      grid-column: 2 / 5;
+      border: 1vmax solid var(--color-lilac-c);
+    }
+    @media (min-width: 60.25em) {
+      grid-row: 1/ 5;
+      grid-column: 1 / 4;
+      transform: translateX(12%);
+    }
+  }
+  .introduction {
+    grid-row: 3 / 5;
+    grid-column: 6 / 10;
+    align-self: center;
   }
   .flower {
     grid-row: 4 / 6;
@@ -120,8 +211,17 @@ export default function UsersList() {
       <SEO title="Home" />
       <Container>
         <h1 className="heading">Wellcome</h1>
-        <section className="introduction">
-          share the knowledge with love.
+        <section className="design">share the knowledge with love.</section>
+        <section className="poster">
+          <i className="poster__right-angle poster__right-angle--top-left" />
+          <i className="poster__right-angle poster__right-angle--top-right" />
+          <i className="poster__right-angle poster__right-angle--bottom-left" />
+          <i className="poster__right-angle poster__right-angle--bottom-right" />
+          <h2>C</h2>
+          <h2>J</h2>
+          <h2>H</h2>
+          <h2>F</h2>
+          <h2>S</h2>
         </section>
         <nav className="navigation">
           <ul className="menu">
@@ -139,7 +239,13 @@ export default function UsersList() {
             </li>
           </ul>
         </nav>
-
+        <p className="introduction">
+          I am a JavaScript Developer that focuses on front-end frameworks such
+          as Vue and React, .etc. I am interested in functional programming,
+          state machine, Web design, and serverless technologies. I focus on
+          building a JAM stack application with new technologies that I never
+          tried to grow my skills.
+        </p>
         <footer className="flower">
           <StaticImage
             className="flower__image"
