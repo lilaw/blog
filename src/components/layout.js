@@ -122,7 +122,8 @@ function Layout({ children }) {
       <main className="main">{children}</main>
 
       <footer className="footer">
-        All articles written with ❤ by apSomething
+        All articles written with ❤ by apSomething using Gatsby, Emotion, and
+        hosted with cloudflare pages.
       </footer>
     </GradientBorder>
   )
