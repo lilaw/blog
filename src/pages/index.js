@@ -56,12 +56,12 @@ const Container = styled.main`
       padding: 1rem;
       height: 100%;
       display: flex;
+      gap: 0.3rem;
       justify-content: flex-end;
       flex-direction: column;
       width: min-content;
       &__item {
-        padding: 0.3rem;
-        list-style: none;
+        display: contents;
         a,
         &__link {
           color: var(--color-grey-b);
@@ -146,31 +146,46 @@ const Container = styled.main`
         transform: translate(-20%, -20%);
       }
     }
-    h2 {
+    span {
       justify-self: center;
       align-self: center;
       font-variation-settings: "wght" 600, "wdth" 75, "YOPQ" 125;
       color: var(--color-lilac-d);
       --h2-font-size-max: 8;
       --h2-font-size-min: 3.5;
+
+      font-size: calc(var(--h2-font-size-min) * 1rem);
+      @media screen and (min-width: 24.15em) {
+        font-size: calc(
+          (var(--h2-font-size-min) * 1rem) +
+            (var(--h2-font-size-max) - var(--h2-font-size-min)) *
+            (
+              (100vw - (var(--bp-small) * 16px)) /
+                (var(--bp-xlarge) - var(--bp-small))
+            ) / 1.6
+        );
+      }
+      @media (min-width: 75em) {
+        font-size: calc(var(--h2-font-size-max) * 1rem);
+      }
     }
-    h2:nth-of-type(1) {
+    span:nth-of-type(1) {
       grid-row: 3 / 5;
       grid-column: 2 / 4;
     }
-    h2:nth-of-type(2) {
+    span:nth-of-type(2) {
       grid-row: 4 / 6;
       grid-column: 3 / 5;
     }
-    h2:nth-of-type(3) {
+    span:nth-of-type(3) {
       grid-row: 1 / 3;
       grid-column: 5 / 7;
     }
-    h2:nth-of-type(4) {
+    span:nth-of-type(4) {
       grid-row: 1 / 3;
       grid-column: 3 / 4;
     }
-    h2:nth-of-type(5) {
+    span:nth-of-type(5) {
       grid-row: 6 / 8;
       grid-column: 2 / 3;
     }
@@ -217,11 +232,11 @@ export default function UsersList() {
           <i className="poster__right-angle poster__right-angle--top-right" />
           <i className="poster__right-angle poster__right-angle--bottom-left" />
           <i className="poster__right-angle poster__right-angle--bottom-right" />
-          <h2>C</h2>
-          <h2>J</h2>
-          <h2>H</h2>
-          <h2>F</h2>
-          <h2>S</h2>
+          <span>C</span>
+          <span>J</span>
+          <span>H</span>
+          <span>F</span>
+          <span>S</span>
         </section>
         <nav className="navigation">
           <ul className="menu">
