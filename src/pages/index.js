@@ -227,7 +227,7 @@ export default function UsersList() {
       <Container>
         <h1 className="heading">Wellcome</h1>
         <section className="design">share the knowledge with love.</section>
-        <section className="poster">
+        <section className="poster" aria-hidden="true">
           <i className="poster__right-angle poster__right-angle--top-left" />
           <i className="poster__right-angle poster__right-angle--top-right" />
           <i className="poster__right-angle poster__right-angle--bottom-left" />
@@ -238,7 +238,7 @@ export default function UsersList() {
           <span>F</span>
           <span>S</span>
         </section>
-        <nav className="navigation">
+        <nav className="navigation" role="navigation" aria-label="main menu">
           <ul className="menu">
             <li className="menu__item">
               <Link to="/">Home</Link>
