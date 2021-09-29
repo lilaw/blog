@@ -9,10 +9,12 @@ const article = css`
   row-gap: 0.8em;
   grid-template-columns: 1px 1fr 1fr 1px;
   @media (min-width: 60.25em) {
-    grid-template-columns: 4fr minmax(min-content, 42rem) minmax(30rem, 32rem) 1fr;
+    grid-template-columns:
+      minmax(1px, 40vw) fit-content(42rem) fit-content(32rem)
+      1fr;
   }
 
-  > * {
+  & > * {
     grid-column: 2 /4;
   }
   [data-language] {
