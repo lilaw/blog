@@ -47,10 +47,10 @@ const Container = styled.main`
     background-color: var(--color-lilac-d);
     align-self: stretch;
     mix-blend-mode: hard-light;
-    grid-column: 2 / 5;
-    grid-row: 3 / 5;
-    transform: translateY(-1rem);
-    justify-self: center;
+    grid-row: 3 / 4;
+    grid-column: 2 / -2;
+    align-self: center;
+    writing-mode: vertical-rl;
 
     .menu {
       padding: 1rem;
@@ -70,7 +70,13 @@ const Container = styled.main`
         }
       }
     }
-    @media screen and (min-width: 24.15em) {
+    @media (min-width: 24.15em) {
+      grid-column: 2 / 5;
+      grid-row: 3 / 5;
+      writing-mode: initial;
+      align-self: stretch;
+      justify-self: center;
+      /* transform: translateY(-1rem); */
     }
     @media (min-width: 60.25em) {
       grid-column: 4 /10;
@@ -204,8 +210,12 @@ const Container = styled.main`
   }
   .introduction {
     grid-row: 3 / 5;
-    grid-column: 6 / 10;
+    grid-column: 2 / 10;
     align-self: center;
+    @media (min-width: 24.15em) {
+      grid-row: 3 / 5;
+      grid-column: 6 / 10;
+    }
   }
   .flower {
     grid-row: 4 / 6;
