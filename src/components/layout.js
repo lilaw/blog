@@ -3,6 +3,9 @@ import React from "react"
 import { css } from "@emotion/react"
 import logo from "../images/logo.svg"
 import { useMatch } from "@reach/router"
+import { Helmet } from "react-helmet"
+import amstelvar from "../css/fonts/Amstelvar-Roman[wdth,wght,opsz].ttf"
+import output from "../css/fonts/Output_Sans-VF.ttf"
 
 const outer = css`
   background: linear-gradient(
@@ -134,7 +137,27 @@ function Layout({ children }) {
 export default function hasLayoutOrnot({ children, pageContext }) {
   // home page are no layout
   if (pageContext.layout === "special") {
-    return children
+    return (
+      <>
+        <Helmet>
+          <link
+            rel="preload"
+            href={amstelvar}
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href={output}
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
+        </Helmet>
+        {children}
+      </>
+    )
   }
   return <Layout>{children}</Layout>
 }
