@@ -8,6 +8,9 @@
 </h1>
 This is a JAM stack app build using Gatsby, Emotion, and hosted with cloudflare pages includes the following content:
 
+我的个人网站， 可阅读我写的博客文章和查看项目、搜索文章
+采用栅格设计、响应式设计原则及 CSS in JS 由 Gatsby 和 Contentful CMS 生成的 JAM Stack 应用
+
 1.  **Home**
 
     home page is a grid design poster.
